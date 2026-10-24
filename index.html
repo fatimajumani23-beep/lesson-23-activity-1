@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Phone Contact</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f3f6ff, #eefaf5);
+        }
+
+        .contact-card {
+            max-width: 620px;
+        }
+
+        .contact-label {
+            min-width: 100px;
+            color: #667085;
+        }
+
+        #codeDisplay {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container py-5">
+        <div class="contact-card mx-auto">
+            <header class="mb-4 text-center">
+                <h1 class="display-6 fw-bold" style="color: rgb(224, 154, 24);">My Phone Contact</h1>
+                <p class="text-secondary mb-0">
+                    A simple contact card powered by a JavaScript object.
+                </p>
+            </header>
+
+            <!-- Contact details card -->
+            <section class="card shadow-sm border-0 mb-4" aria-label="Contact details">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h2 class="h5 mb-0" style="color: rgb(224, 154, 24);">Contact details</h2>
+                </div>
+
+                <ul class="list-group list-group-flush px-4 pb-3">
+                    <li class="list-group-item px-0 d-flex">
+                        <span class="contact-label">Name</span>
+                        <span id="name" class="fw-semibold"></span>
+                    </li>
+                    <li class="list-group-item px-0 d-flex">
+                        <span class="contact-label">Phone</span>
+                        <span id="phone" class="fw-semibold"></span>
+                    </li>
+                    <li class="list-group-item px-0 d-flex">
+                        <span class="contact-label">School</span>
+                        <span id="school" class="fw-semibold"></span>
+                    </li>
+                    <li class="list-group-item px-0 d-flex">
+                        <span class="contact-label">City</span>
+                        <span id="city" class="fw-semibold"></span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Replace these sample values with your own contact information.
+        var myContact = {
+            name: "Alex Morgan",
+            phone: "(555) 010-1234",
+            school: "Example High School",
+            city: "Example City"
+        };
+
+        // Dot notation for name and phone.
+        document.getElementById("name").textContent = myContact.name;
+        document.getElementById("phone").textContent = myContact.phone;
+
+        // Bracket notation for school and city.
+        document.getElementById("school").textContent = myContact["school"];
+        document.getElementById("city").textContent = myContact["city"];
+
+        // Display the object in the second card.
+        document.getElementById("contactJson").textContent =
+            JSON.stringify(myContact, null, 2);
+    </script>
+</body>
+
+</html>
